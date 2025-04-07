@@ -1,5 +1,10 @@
 import Navbar from "@/components/Navbar";
 import { useRef } from "react";
+import { ModeToggle } from "./components/ModeToggle";
+import { ThemeProvider } from "./components/theme-provider";
+import { Heading } from "./components/Heading";
+import { Meteors } from "./components/magicui/meteors";
+
 
 function App() {
   const aboutRef = useRef<HTMLDivElement | null>(null);
@@ -9,33 +14,40 @@ function App() {
 
   return (
     <>
-      <div className="fixed top-0 left-0 w-full h-full -z-10 bg-gradient-to-b from-[#608BC1] to-[#1f55b2]" />
-      <div className="relative z-10">
-        <>
-          <Navbar
-            aboutRef={aboutRef}
-            resumeRef={resumeRef}
-            projectRef={projectRef}
-            contactRef={contactRef}
-          />
-          <div className="bg-red-500 w-[80%] items-center justify-center mx-auto">
-            <div className="h-screen flex items-center justify-center">
-              <h1 className="text-white text-4xl font-bold">Heading</h1>
+      <ThemeProvider>
+        <ModeToggle />
+        <Navbar
+          aboutRef={aboutRef}
+          resumeRef={resumeRef}
+          projectRef={projectRef}
+          contactRef={contactRef}
+        />
+        <div className="relative z-10">
+          <div className="items-center justify-center mx-auto ">
+            <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border">
+              <Meteors number={20}/>
+              <Heading />
             </div>
 
             <div
               className="h-screen flex items-center justify-center"
               ref={aboutRef}
             >
-              <h1 className="text-4xl font-bold text-white">About</h1>
+              <h1 className="text-4xl font-bold ">About</h1>
             </div>
 
-            <div className="h-screen" ref={resumeRef}></div>
-            <div className="h-screen" ref={projectRef}></div>
-            <div className="h-screen" ref={contactRef}></div>
+            <div className="h-screen" ref={resumeRef}>
+              <h1>Resume</h1>
+            </div>
+            <div className="h-screen" ref={projectRef}>
+              <h1>Project</h1>
+            </div>
+            <div className="h-screen" ref={contactRef}>
+              <h1>Contact</h1>
+            </div>
           </div>
-        </>
-      </div>
+        </div>
+      </ThemeProvider>
     </>
   );
 }

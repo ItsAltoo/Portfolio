@@ -30,10 +30,8 @@ const Navbar: React.FC<NavbarProps> = ({
   ];
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b  backdrop-blur-md bg-[#133E87]/80 rounded-br-md rounded-bl-md">
+    <nav className="fixed top-0 z-50 w-full border-b  backdrop-blur-md bg-black/60 rounded-br-md rounded-bl-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        
-
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6 text-sm text-white font-medium">
           {menuItems.map(({ label, ref }) => (
@@ -55,9 +53,9 @@ const Navbar: React.FC<NavbarProps> = ({
             </SheetTrigger>
             <SheetContent
               side="left"
-              className=" bg-black/80 backdrop-blur-md text-white"
+              className=" bg-black/60 backdrop-blur-md text-white"
             >
-              <nav className="flex flex-col space-y-4 text-base font-medium">
+              <nav className="flex flex-col space-y-4 text-base font-medium mt-5">
                 {menuItems.map(({ label, ref }) => (
                   <button
                     key={label}
