@@ -5,6 +5,7 @@ import { ThemeProvider } from "./components/theme-provider";
 import { Heading } from "./components/Heading";
 
 function App() {
+  const headingRef = useRef<HTMLDivElement | null>(null);
   const aboutRef = useRef<HTMLDivElement | null>(null);
   const resumeRef = useRef<HTMLDivElement | null>(null);
   const projectRef = useRef<HTMLDivElement | null>(null);
@@ -15,13 +16,14 @@ function App() {
       <ThemeProvider>
         <ModeToggle />
         <Navbar
+          headingRef={headingRef}
           aboutRef={aboutRef}
           resumeRef={resumeRef}
           projectRef={projectRef}
           contactRef={contactRef}
         />
         <div className="relative z-10">
-          <div className="  h-screen">
+          <div className="h-screen" ref={headingRef}>
             <Heading />
           </div>
 
