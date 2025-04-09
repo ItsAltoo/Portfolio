@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { ModeToggle } from "./components/ModeToggle";
 import { ThemeProvider } from "./components/theme-provider";
 import { Heading } from "./components/Heading";
+import { AboutMe } from "./app/content";
 
 function App() {
   const headingRef = useRef<HTMLDivElement | null>(null);
@@ -27,14 +28,19 @@ function App() {
             <Heading />
           </div>
 
-          <div
-            className="h-screen flex items-center justify-center"
-            ref={aboutRef}
-          >
-            <h1 className="text-4xl font-bold ">About</h1>
+          <div className="relative overflow-hidden" ref={aboutRef}>
+            {/* left bottom */}
+            <div className="size-32 rotate-12 bg-blue-500 rounded-md absolute -bottom-4 -left-6 opacity-20 shadow-md dark:shadow-black shadow-zinc-700"></div>
+            <div className="size-24 rotate-45 bg-blue-500 rounded-md absolute -bottom-10 -left-6 shadow-md dark:shadow-black shadow-zinc-700"></div>
+            {/* right bottom */}
+            <div className="size-48 rotate-12 bg-blue-500 rounded-md absolute -bottom-4 -right-6 opacity-20 shadow-md dark:shadow-black shadow-zinc-700"></div>
+            <div className="size-24 rotate-45 bg-blue-500 rounded-md absolute -bottom-10 right-6 shadow-md dark:shadow-black shadow-zinc-700"></div>
+            <div className="size-24 -rotate-45 bg-blue-500 rounded-md absolute -bottom-3 -right-6 shadow-md dark:shadow-black shadow-zinc-700"></div>
+            <AboutMe />
           </div>
 
           <div className="h-screen" ref={resumeRef}>
+            <p>----</p>
             <h1>Resume</h1>
           </div>
           <div className="h-screen" ref={projectRef}>
