@@ -56,7 +56,7 @@ export const Heading = () => {
   const bluePart = displayedText.slice(staticText.length);
 
   return (
-    <div className="relative h-full w-full flex flex-col items-start justify-center">
+    <div className="relative h-full w-full flex items-center">
       <Particles
         className="absolute inset-0 z-0"
         quantity={200}
@@ -71,14 +71,13 @@ export const Heading = () => {
             {isColored && <span className="text-blue-500">{bluePart}</span>}
           </h1>
         </div>
-      
-        
-      </div>
-      <p className="mt-4 text-base sm:text-lg md:text-xl text-left z-10 max-w-2xl md:max-w-3xl">
+
+        <p className="mt-4 text-base sm:text-lg md:text-xl text-left z-10 max-w-2xl md:max-w-3xl">
           I’m a driven Web Developer and Graphic Designer, passionate about
           blending aesthetics with functionality. Always exploring new ideas to
           push digital experiences to the next level.
         </p>
+      </div>
     </div>
   );
 };
