@@ -4,6 +4,9 @@ import { ModeToggle } from "./components/ModeToggle";
 import { ThemeProvider } from "./components/theme-provider";
 import { Heading } from "./components/Heading";
 import { AboutMe } from "./app/content";
+import { ParallaxBoxes } from "./components/Box";
+import { Pointer } from "./components/magicui/pointer";
+
 
 function App() {
   const headingRef = useRef<HTMLDivElement | null>(null);
@@ -28,14 +31,8 @@ function App() {
             <Heading />
           </div>
 
-          <div className="relative overflow-hidden" ref={aboutRef}>
-            {/* left bottom */}
-            <div className="size-32 rotate-12 bg-blue-500 rounded-md absolute -bottom-4 -left-6 opacity-20 shadow-md dark:shadow-black shadow-zinc-700"></div>
-            <div className="size-24 rotate-45 bg-blue-500 rounded-md absolute -bottom-10 -left-6 shadow-md dark:shadow-black shadow-zinc-700"></div>
-            {/* right bottom */}
-            <div className="size-48 rotate-12 bg-blue-500 rounded-md absolute -bottom-4 -right-6 opacity-20 shadow-md dark:shadow-black shadow-zinc-700"></div>
-            <div className="size-24 rotate-45 bg-blue-500 rounded-md absolute -bottom-10 right-6 shadow-md dark:shadow-black shadow-zinc-700"></div>
-            <div className="size-24 -rotate-45 bg-blue-500 rounded-md absolute -bottom-3 -right-6 shadow-md dark:shadow-black shadow-zinc-700"></div>
+          <div className="relative overflow-hidden h-screen" ref={aboutRef}>
+            <ParallaxBoxes />
             <AboutMe />
           </div>
 
@@ -50,6 +47,21 @@ function App() {
             <h1>Contact</h1>
           </div>
         </div>
+
+
+        {/* Pointer */}
+        <Pointer>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="12" cy="12" r="10" className="fill-[#F3F3E0] opacity-65" />
+            <circle cx="12" cy="12" r="5" className="fill-white" />
+          </svg>
+        </Pointer>
       </ThemeProvider>
     </>
   );
