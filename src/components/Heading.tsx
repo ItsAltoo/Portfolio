@@ -4,6 +4,7 @@ import { useEffect, useState, useMemo } from "react";
 import { Particles } from "./magicui/particles";
 import { useTheme } from "./theme-provider";
 
+
 export const Heading = () => {
   const { theme } = useTheme();
   const [color, setColor] = useState("#CBDCEB");
@@ -72,6 +73,8 @@ export const Heading = () => {
           </h1>
         </div>
 
+
+        
         <p className="mt-4 text-base sm:text-lg md:text-xl text-left z-10 max-w-2xl md:max-w-3xl">
           I’m a driven Web Developer and Graphic Designer, passionate about
           blending aesthetics with functionality. Always exploring new ideas to

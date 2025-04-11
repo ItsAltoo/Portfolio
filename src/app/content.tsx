@@ -1,4 +1,5 @@
 import { TextAnimate } from "@/components/magicui/text-animate";
+import  Button  from "@mui/material/Button";
 
 export const AboutMe = () => {
   return (
@@ -43,11 +44,20 @@ export const AboutMe = () => {
           that excite me. I'm also passionate about astronomy—looking at the
           starry night sky brings me peace.
         </TextAnimate>
+        <div className="mt-5">
+          <Button className="" variant="outlined">Contact Me</Button>
+        </div>
       </div>
     </>
   );
 };
 
 export const Resume = () => {
-  return <div>Resume</div>;
+  return (
+    <>
+      <div className="h-screen justify-between items-start flex flex-col">
+        <h1 className="font-['Markazi_Text']">My Resume</h1>
+      </div>
+    </>
+  );
 };

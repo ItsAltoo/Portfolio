@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { ModeToggle } from "./components/ModeToggle";
 import { ThemeProvider } from "./components/theme-provider";
 import { Heading } from "./components/Heading";
-import { AboutMe } from "./app/content";
+import { AboutMe,Resume } from "./app/content";
 import { ParallaxBoxes } from "./components/Box";
 import { Pointer } from "./components/magicui/pointer";
 
@@ -37,8 +37,7 @@ function App() {
           </div>
 
           <div className="h-screen" ref={resumeRef}>
-            <p>----</p>
-            <h1>Resume</h1>
+            <Resume />
           </div>
           <div className="h-screen" ref={projectRef}>
             <h1>Project</h1>
