@@ -3,10 +3,9 @@ import { useRef } from "react";
 import { ModeToggle } from "./components/ModeToggle";
 import { ThemeProvider } from "./components/theme-provider";
 import { Heading } from "./components/Heading";
-import { AboutMe,Resume } from "./app/content";
+import { AboutMe, Resume } from "./app/content";
 import { ParallaxBoxes } from "./components/Box";
 import { Pointer } from "./components/magicui/pointer";
-
 
 function App() {
   const headingRef = useRef<HTMLDivElement | null>(null);
@@ -33,7 +32,7 @@ function App() {
 
           <div className="relative overflow-hidden h-screen" ref={aboutRef}>
             <ParallaxBoxes />
-            <AboutMe />
+            <AboutMe aboutToContact={contactRef} />
           </div>
 
           <div className="h-screen" ref={resumeRef}>
@@ -47,20 +46,8 @@ function App() {
           </div>
         </div>
 
-
         {/* Pointer */}
-        <Pointer>
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="12" cy="12" r="10" className="fill-[#F3F3E0] opacity-65" />
-            <circle cx="12" cy="12" r="5" className="fill-white" />
-          </svg>
-        </Pointer>
+        <Pointer />
       </ThemeProvider>
     </>
   );

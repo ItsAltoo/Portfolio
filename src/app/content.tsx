@@ -1,7 +1,17 @@
 import { TextAnimate } from "@/components/magicui/text-animate";
-import  Button  from "@mui/material/Button";
+import Button from "@mui/material/Button";
+import React from "react";
 
-export const AboutMe = () => {
+interface ButtonProps {
+  aboutToContact: React.RefObject<HTMLDivElement | null>;
+}
+
+/* About Me */
+export const AboutMe: React.FC<ButtonProps> = ({ aboutToContact }) => {
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
       <div className="relative h-full flex flex-col justify-center px-6 md:px-24">
@@ -44,19 +54,57 @@ export const AboutMe = () => {
           that excite me. I'm also passionate about astronomy—looking at the
           starry night sky brings me peace.
         </TextAnimate>
-        <div className="mt-5">
-          <Button className="" variant="outlined">Contact Me</Button>
+        <div className="mt-8 ml-4">
+          <Button
+            className="h-16 w-40"
+            variant="outlined"
+            onClick={() => scrollToSection(aboutToContact)}
+          >
+            Contact Me
+          </Button>
         </div>
       </div>
     </>
   );
 };
 
+/* Resume */
 export const Resume = () => {
   return (
     <>
-      <div className="h-screen justify-between items-start flex flex-col">
-        <h1 className="font-['Markazi_Text']">My Resume</h1>
+      <div className="h-screen justify-around items-start flex flex-col">
+        <div className="">
+          <h1 className="font-['Markazi_Text'] text-center">My Resume</h1>
+
+          {/* Languages etc. */}
+          <div className=" flex flex-col">
+            <div className="text-center border border-zinc-400 my-3 rounded-lg p-4 bg-zinc-400/10">
+              <h1 className="mb-3 font-semibold text-2xl">LANGUAGES</h1>
+              <i className="devicon-css3-plain text-3xl my-3 mx-3 text-blue-500"></i>
+              <i className="devicon-html5-plain text-3xl my-3 mx-3 text-blue-500"></i>
+              <i className="devicon-javascript-plain text-3xl my-3 mx-3 text-blue-500"></i>
+              <i className="devicon-mysql-original text-3xl my-3 mx-3 text-blue-500"></i>
+              <i className="devicon-python-plain text-3xl my-3 mx-3 text-blue-500"></i>
+            </div>
+            <div className="text-center border border-zinc-400 my-3 rounded-lg p-4 bg-zinc-400/10">
+              <h1 className="mb-3 font-semibold text-2xl">FRAMEWORKS</h1>
+              <i className="devicon-django-plain text-3xl my-3 mx-3 text-blue-500"></i>
+              <i className="devicon-vitejs-plain text-3xl my-3 mx-3 text-blue-500"></i>
+              <i className="devicon-react-original text-3xl my-3 mx-3 text-blue-500"></i>
+            </div>
+            <div className="text-center border border-zinc-400 my-3 rounded-lg p-4 bg-zinc-400/10">
+              <h1 className="mb-3 font-semibold text-2xl">TOOLS</h1>
+              <i className="devicon-vercel-original text-3xl my-3 mx-3 text-blue-500"></i>
+              <i className="devicon-vscode-plain text-3xl my-3 mx-3 text-blue-500"></i>
+              <i className="devicon-nodejs-plain-wordmark text-3xl my-3 mx-3 text-blue-500"></i>
+              <i className="devicon-photoshop-plain text-3xl my-3 mx-3 text-blue-500"></i>
+              <i className="devicon-figma-plain text-3xl my-3 mx-3 text-blue-500"></i>
+              <i className="devicon-github-original text-3xl my-3 mx-3 text-blue-500"></i>
+              <i className="devicon-git-plain text-3xl my-3 mx-3 text-blue-500"></i>
+              <i className="devicon-npm-original-wordmark text-3xl my-3 mx-3 text-blue-500"></i>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
