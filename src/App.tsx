@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { ModeToggle } from "./components/ModeToggle";
 import { ThemeProvider } from "./components/theme-provider";
 import { Heading } from "./components/Heading";
-import { AboutMe, Resume } from "./app/content";
+import { AboutMe, Project, Resume, Contact } from "./app/content";
 import { ParallaxBoxes } from "./components/Box";
 import { Pointer } from "./components/magicui/pointer";
 
@@ -35,14 +35,15 @@ function App() {
             <AboutMe aboutToContact={contactRef} />
           </div>
 
-          <div className="h-screen" ref={resumeRef}>
+          <div ref={resumeRef}>
             <Resume />
           </div>
-          <div className="h-screen" ref={projectRef}>
-            <h1>Project</h1>
+
+          <div ref={projectRef}>
+            <Project />
           </div>
-          <div className="h-screen" ref={contactRef}>
-            <h1>Contact</h1>
+          <div ref={contactRef}>
+            <Contact />
           </div>
         </div>
 
