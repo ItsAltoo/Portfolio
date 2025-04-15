@@ -5,7 +5,6 @@ import { ThemeProvider } from "./components/theme-provider";
 import { Heading } from "./components/Heading";
 import { AboutMe, Project, Resume, Contact } from "./app/content";
 import { ParallaxBoxes } from "./components/Box";
-import { Pointer } from "./components/magicui/pointer";
 
 function App() {
   const headingRef = useRef<HTMLDivElement | null>(null);
@@ -42,13 +41,13 @@ function App() {
           <div ref={projectRef}>
             <Project />
           </div>
+          
           <div ref={contactRef}>
             <Contact />
           </div>
         </div>
 
         {/* Pointer */}
-        <Pointer />
       </ThemeProvider>
     </>
   );

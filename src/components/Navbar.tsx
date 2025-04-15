@@ -37,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8 md:mr-10">
-          <div className="dark:text-blue-500 text-blue-800 text-lg font-bold cursor-pointer" onClick={() => scrollToSection(headingRef)}>
+          <div className="brand-blue text-lg font-bold cursor-pointer" onClick={() => scrollToSection(headingRef)}>
             Malik
           </div>
         </div>

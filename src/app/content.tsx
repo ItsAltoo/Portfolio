@@ -1,6 +1,7 @@
 import { TextAnimate } from "@/components/magicui/text-animate";
 import Button from "@mui/material/Button";
-import React from "react";
+import React, { useState } from "react";
+import { portfolioData, Category } from "@/data/projectData";
 
 interface ButtonProps {
   aboutToContact: React.RefObject<HTMLDivElement | null>;
@@ -24,7 +25,7 @@ export const AboutMe: React.FC<ButtonProps> = ({ aboutToContact }) => {
             About
           </TextAnimate>
           <TextAnimate
-            className="text-4xl md:text-7xl font-semibold italic text-left text-blue-500"
+            className="text-4xl md:text-7xl font-semibold italic text-left brand-blue"
             animation="slideLeft"
             by="character"
             delay={0.2}
@@ -38,7 +39,10 @@ export const AboutMe: React.FC<ButtonProps> = ({ aboutToContact }) => {
           animation="fadeIn"
           by="character"
         >
-          My name is Malik. I live in Samarinda, East Kalimantan, Indonesia. I have an interest in frontend development and want to learn more. I am still young and have not experienced much, but if you need a young man with high enthusiasm in programming, I'm your guy.
+          My name is Malik. I live in Samarinda, East Kalimantan, Indonesia. I
+          have an interest in frontend development and want to learn more. I am
+          still young and have not experienced much, but if you need a young man
+          with high enthusiasm in programming, I'm your guy.
         </TextAnimate>
 
         <TextAnimate
@@ -47,7 +51,9 @@ export const AboutMe: React.FC<ButtonProps> = ({ aboutToContact }) => {
           by="character"
           delay={0.2}
         >
-          In my spare time, I draw anime characters and explore new technologies that excite me. I'm also passionate about astronomy—looking at the starry night sky brings me peace.
+          In my spare time, I draw anime characters and explore new technologies
+          that excite me. I'm also passionate about astronomy—looking at the
+          starry night sky brings me peace.
         </TextAnimate>
         <div className="mt-8 ml-4">
           <Button
@@ -90,12 +96,9 @@ export const Resume = () => {
   return (
     <>
       <div className="flex flex-col items-center justify-around px-4 md:px-8 lg:px-16">
-        <div className="max-w-6xl border-l-2 pl-12 pb-5 dark:border-white/70">
-          <h1 className="font-['Markazi_Text'] text-5xl md:text-6xl lg:text-8xl my-8 text-center md:text-start">
-            My{" "}
-            <span className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
-              Resume
-            </span>
+        <div className="max-w-6xl border-l-2 pl-5 mb:pl-12 pb-12 dark:border-white/70">
+          <h1 className="font-['Markazi_Text'] text-5xl md:text-6xl lg:text-8xl my-14 text-center md:text-start">
+            My <span className="brand-blue">Resume</span>
           </h1>
 
           <TextAnimate
@@ -177,9 +180,145 @@ export const Resume = () => {
 
 /* Project */
 export const Project = () => {
+  const categories: Category[] = ["All", "Website", "Art", "Design Grafis"];
+  const [zoomImage, setZoomImage] = useState<string | null>(null);
+  const [selected, setSelected] = useState<Category>("All");
+
+  const filtered =
+    selected === "All"
+      ? portfolioData
+      : portfolioData.filter((item) => item.category === selected);
+
   return (
     <>
-      <h1>Project</h1>
+      <div className="flex flex-col items-baseline px-4">
+        <div className="max-w-3xl pb-12 ml-2">
+          <h1 className="font-['Markazi_Text'] text-5xl md:text-6xl lg:text-8xl mt-24 text-center md:text-start">
+            My{" "}
+            <span className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
+              Project
+            </span>
+          </h1>
+
+          <p className="mt-8 ml-28 text-xl">
+            Here is a collection of my favorite projects that I've developed
+            recently. Each project showcases my skills and dedication to
+            creating high-quality applications. From innovative features to
+            seamless user experiences, these projects represent the best of my
+            work.
+          </p>
+        </div>
+
+        {/* Project Content */}
+        <div className="flex flex-col justify-center items-center w-full mt-24">
+          <div className="p-6">
+            {/* Filter Buttons */}
+            <div className="flex flex-wrap gap-4 mb-6 justify-center">
+              {categories.map((cat) => (
+                <Button
+                  key={cat}
+                  variant={selected === cat ? "contained" : "outlined"}
+                  onClick={() => setSelected(cat)}
+                >
+                  {cat}
+                </Button>
+              ))}
+            </div>
+
+            {/* Content Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filtered.map((item) => (
+                <div
+                  key={item.id}
+                  className="p-4 border rounded-xl shadow-sm shadow-blue-500 bg-white dark:bg-zinc-900"
+                >
+                  {/* Gambar Project */}
+                  <img
+                    src={item.imageUrl}
+                    alt={item.title}
+                    className="w-full h-48 object-cover rounded-md mb-4 cursor-pointer transition-transform duration-300 hover:scale-105"
+                    onClick={() => setZoomImage(item.imageUrl)}
+                  />
+
+                  <h3 className="text-lg font-semibold">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {item.category}
+                  </p>
+                  <p className="mt-2">{item.description}</p>
+
+                  {/* Tech Icons */}
+                  <div className="flex flex-wrap mt-4 gap-2">
+                    {item.techIcons.map((icon, index) => (
+                      <i
+                        key={index}
+                        className={`${icon} text-2xl text-blue-500`}
+                      ></i>
+                    ))}
+                  </div>
+
+                  {/* Action Buttons by Category */}
+                  <div className="mt-4">
+                    {item.category === "Website" && (
+                      <Button
+                        href={`https://${item.websiteUrl}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variant="contained"
+                      >
+                        Visit Site
+                      </Button>
+                    )}
+                    {item.category === "Art" && (
+                      <div className="mt-12">
+                        <Button
+                          href={item.imageUrl}
+                          download
+                          variant="contained"
+                        >
+                          Download Image
+                        </Button>
+                      </div>
+                    )}
+                    {item.category === "Design Grafis" && (
+                      <div className="flex gap-2 flex-wrap">
+                        <Button
+                          href={item.imageUrl}
+                          download
+                          variant="contained"
+                        >
+                          Download Image
+                        </Button>
+                        {item.templateUrl && (
+                          <Button
+                            href={item.templateUrl}
+                            download
+                          >
+                            Download Template
+                          </Button>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Zoom Modal */}
+      {zoomImage && (
+        <div
+          className="md:mt-5 fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center"
+          onClick={() => setZoomImage(null)}
+        >
+          <img
+            src={zoomImage}
+            alt="Zoomed"
+            className="max-w-[80%] max-h-[80%] rounded-lg shadow-xl border border-blue-500"
+          />
+        </div>
+      )}
     </>
   );
 };

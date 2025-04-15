@@ -69,7 +69,7 @@ export const Heading = () => {
         <div className="w-max">
           <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold border-r-4 dark:border-white border-black pr-3 overflow-hidden whitespace-nowrap min-h-[2.5rem]">
             {normalPart}
-            {isColored && <span className="text-blue-500">{bluePart}</span>}
+            {isColored && <span className="brand-blue">{bluePart}</span>}
           </h1>
         </div>
 
