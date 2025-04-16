@@ -2,6 +2,7 @@ import { TextAnimate } from "@/components/magicui/text-animate";
 import Button from "@mui/material/Button";
 import React, { useState } from "react";
 import { portfolioData, Category } from "@/data/projectData";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 interface ButtonProps {
   aboutToContact: React.RefObject<HTMLDivElement | null>;
@@ -200,7 +201,7 @@ export const Project = () => {
             </span>
           </h1>
 
-          <p className="mt-8 ml-28 text-xl">
+          <p className="mt-8 md:ml-28 text-xl">
             Here is a collection of my favorite projects that I've developed
             recently. Each project showcases my skills and dedication to
             creating high-quality applications. From innovative features to
@@ -214,13 +215,13 @@ export const Project = () => {
           <div className="p-6">
             {/* Filter Buttons */}
             <div className="flex flex-wrap gap-4 mb-6 justify-center">
-              {categories.map((cat) => (
+              {categories.map((cate) => (
                 <Button
-                  key={cat}
-                  variant={selected === cat ? "contained" : "outlined"}
-                  onClick={() => setSelected(cat)}
+                  key={cate}
+                  variant={selected === cate ? "contained" : "outlined"}
+                  onClick={() => setSelected(cate)}
                 >
-                  {cat}
+                  {cate}
                 </Button>
               ))}
             </div>
@@ -289,10 +290,7 @@ export const Project = () => {
                           Download Image
                         </Button>
                         {item.templateUrl && (
-                          <Button
-                            href={item.templateUrl}
-                            download
-                          >
+                          <Button href={item.templateUrl} download>
                             Download Template
                           </Button>
                         )}
@@ -327,7 +325,35 @@ export const Project = () => {
 export const Contact = () => {
   return (
     <>
-      <h1>Contact</h1>
+      <footer className="dark:bg-zinc-800 bg-zinc-700 border-t border-blue-500 shadow-2xl shadow-blue-500 text-gray-300 py-12 px-4 mt-28">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          {/* Sosial Media */}
+          <div className="flex space-x-4 text-xl">
+            <a
+              href="https://github.com/ItsAltoo"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub className="hover:text-blue-500 transition" />
+            </a>
+            <a href="" target="" rel="noopener noreferrer">
+              <FaLinkedin className="hover:text-blue-500 transition" />
+            </a>
+            <a
+              href="https://www.instagram.com/malik_qit/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram className="hover:text-blue-500 transition" />
+            </a>
+          </div>
+
+          {/* Copyright */}
+          <p className="text-sm text-center">
+            © 2025 Malik S.A. All Rights Reserved
+          </p>
+        </div>
+      </footer>
     </>
   );
 };

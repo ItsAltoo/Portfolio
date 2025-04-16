@@ -19,29 +19,29 @@ export const ParallaxBoxes = () => {
       <motion.div
         style={{ y: ySlow }}
         initial={{ rotate: 12 }}
-        className="size-32 rotate-12 bg-blue-500 rounded-md absolute bottom-20 -left-6 opacity-20 shadow-md dark:shadow-blue-950 shadow-blue-700"
+        className=" size-32 rotate-12 bg-blue-500 rounded-md absolute bottom-20 -left-6 opacity-20 shadow-md dark:shadow-blue-950 shadow-blue-700"
       />
       <motion.div
         style={{ y: yMid }}
         initial={{ rotate: 45 }}
-        className="size-24 rotate-45 bg-blue-500 rounded-md absolute bottom-12 -left-3 shadow-md dark:shadow-blue-950 shadow-blue-700"
+        className=" size-24 rotate-45 bg-blue-500 rounded-md absolute bottom-12 -left-3 shadow-md dark:shadow-blue-950 shadow-blue-700"
       />
 
       {/* Right Bottom Boxes */}
       <motion.div
         style={{ y: ySlow }}
         initial={{ rotate: 12 }}
-        className="size-48 rotate-12 bg-blue-500 rounded-md absolute bottom-4 -right-6 opacity-20 shadow-md dark:shadow-blue-950 shadow-blue-700"
+        className=" size-48 rotate-12 bg-blue-500 rounded-md absolute bottom-4 -right-6 opacity-20 shadow-md dark:shadow-blue-950 shadow-blue-700"
       />
       <motion.div
         style={{ y: yMid }}
         initial={{ rotate: 45 }}
-        className="size-24 rotate-45 bg-blue-500 rounded-md absolute bottom-20 right-6 shadow-md dark:shadow-blue-950 shadow-blue-700"
+        className=" size-24 rotate-45 bg-blue-500 rounded-md absolute bottom-20 right-6 shadow-md dark:shadow-blue-950 shadow-blue-700"
       />
       <motion.div
         style={{ y: yFast }}
         initial={{ rotate: 45 }}
-        className="size-28 -rotate-45 bg-blue-500 rounded-md absolute bottom-9 -right-6 shadow-md dark:shadow-blue-950 shadow-blue-700"
+        className=" size-28 -rotate-45 bg-blue-500 rounded-md absolute bottom-9 -right-6 shadow-md dark:shadow-blue-950 shadow-blue-700"
       />
     </div>
   );
