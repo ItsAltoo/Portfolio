@@ -41,13 +41,12 @@ function App() {
           <div ref={projectRef}>
             <Project />
           </div>
-          
+
           <div ref={contactRef}>
             <Contact />
           </div>
         </div>
 
-        {/* Pointer */}
       </ThemeProvider>
     </>
   );

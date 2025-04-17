@@ -307,13 +307,13 @@ export const Project = () => {
       {/* Zoom Modal */}
       {zoomImage && (
         <div
-          className="md:mt-5 fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center"
+          className=" fixed inset-0 z-50 bg-black/75 flex items-center justify-center"
           onClick={() => setZoomImage(null)}
         >
           <img
             src={zoomImage}
             alt="Zoomed"
-            className="max-w-[80%] max-h-[80%] rounded-lg shadow-xl border border-blue-500"
+            className="max-w-[80%] max-h-[80%] md:mt-12 rounded-lg shadow-xl border border-blue-500 " 
           />
         </div>
       )}
