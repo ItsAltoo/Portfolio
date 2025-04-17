@@ -98,7 +98,7 @@ export const Resume = () => {
     <>
       <div className="flex flex-col items-center justify-around px-4 md:px-8 lg:px-16">
         <div className="max-w-6xl border-l-2 pl-5 mb:pl-12 pb-12 dark:border-white/70">
-          <h1 className="font-['Markazi_Text'] text-5xl md:text-6xl lg:text-8xl my-14 text-center md:text-start">
+          <h1 className="font-['Markazi_Text',serif] text-5xl md:text-6xl lg:text-8xl my-14 text-center md:text-start">
             My <span className="brand-blue">Resume</span>
           </h1>
 
@@ -194,7 +194,7 @@ export const Project = () => {
     <>
       <div className="flex flex-col items-baseline px-4">
         <div className="max-w-3xl pb-12 ml-2">
-          <h1 className="font-['Markazi_Text'] text-5xl md:text-6xl lg:text-8xl mt-24 text-center md:text-start">
+          <h1 className="font-['Markazi_Text',serif] text-5xl md:text-6xl lg:text-8xl mt-24 text-center md:text-start">
             My{" "}
             <span className="bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
               Project
