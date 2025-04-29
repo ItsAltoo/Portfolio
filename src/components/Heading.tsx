@@ -6,9 +6,16 @@ import { useTheme } from "./theme-provider";
 
 
 export const Heading = () => {
+  /* Particle Animation */
   const { theme } = useTheme();
   const [color, setColor] = useState("#CBDCEB");
+  
+  useEffect(() => {
+    setColor(theme === "dark" ? "#CBDCEB" : "#133E87");
+  }, [theme]);
 
+   
+  /* Text Animation */
   const staticText = "Hello, I am ";
   const coloredText = "Malik S.A";
 
@@ -19,14 +26,11 @@ export const Heading = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [pause, setPause] = useState(false);
 
-  useEffect(() => {
-    setColor(theme === "dark" ? "#CBDCEB" : "#133E87");
-  }, [theme]);
 
   useEffect(() => {
     if (pause) return;
 
-    const delay = isDeleting ? 80 : 120;
+    const delay = isDeleting ? 80: 120;
     const timeout = setTimeout(() => {
       if (!isDeleting) {
         setDisplayedText(fullText.substring(0, index + 1));
@@ -66,6 +70,7 @@ export const Heading = () => {
         refresh
       />
       <div className="relative flex flex-col items-start justify-center h-full w-full text-left px-4 pl-6 sm:pl-10 md:pl-20">
+        {/* Heading */}
         <div className="w-max">
           <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold border-r-4 dark:border-white border-black pr-3 overflow-hidden whitespace-nowrap min-h-[2.5rem]">
             {normalPart}
