@@ -1,0 +1,20 @@
+# Abaikan folder dependensi
+node_modules
+
+# Abaikan folder output build lokal
+dist
+build
+.output
+
+# Abaikan file log
+*.log
+npm-debug.log
+
+# Abaikan folder sistem lain
+.git
+.vscode
+.idea
+
+# Abaikan file environment (penting untuk keamanan)
+.env
+.env.*
