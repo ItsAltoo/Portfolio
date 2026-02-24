@@ -1,6 +1,6 @@
 # --- TAHAP 1: BUILDER ---
 # Menggunakan image Node.js sebagai fondasi untuk membangun proyek
-FROM node:18-alpine AS builder
+FROM node:24-alpine AS builder
 
 # Menentukan direktori kerja di dalam container
 WORKDIR /app
